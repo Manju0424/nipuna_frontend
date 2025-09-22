@@ -1,0 +1,905 @@
+<!-- Navigation -->
+<nav style="background-color: #dc2626; padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div class="container">
+    <div class="flex items-center justify-between">
+      <!-- Logo Section -->
+      <div class="flex items-center gap-4">
+        <!-- HETERO Logo -->
+        <div class="flex items-center">
+          <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+            <span style="font-weight: bold; color: #cbc7c7; font-size: 0.875rem;">HETERO</span>
+          </div>
+        </div>
+        
+        <!-- NIPUNA Logo -->
+        <div class="flex items-center">
+          <span style="font-size: 1.5rem; font-weight: bold; color: white;">NIPUNA</span>
+        </div>
+      </div>
+      
+      <!-- Navigation Links (Desktop) -->
+      <div class="nav-links" style="display: flex; gap: 0.5rem;">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#why-nipuna" class="nav-link">Why Nipuna</a>
+        <a href="#goals" class="nav-link">Goals</a>
+        <a href="#facilities" class="nav-link">Facilities</a>
+        <a href="#courses" class="nav-link">Courses</a>
+        <a href="#posts" class="nav-link">Posts</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#leadership" class="nav-link">Leadership</a>
+         <a href="#feedback" class="nav-link">Feedback</a>
+      </div>
+     
+      
+      <!-- Mobile menu button -->
+      <div class="mobile-menu-btn">
+        <button type="button" class="mobile-menu-toggle" aria-controls="mobile-menu" aria-expanded="false" style="background: white; padding: 0.5rem; border-radius: 0.375rem; border: none; cursor: pointer;">
+          <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">Open main menu</span>
+          <svg style="display: block; width: 1.5rem; height: 1.5rem; color: #dc2626;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" style="background-color: #dc2626; padding: 1rem; display: none;">
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#why-nipuna" class="mobile-nav-link">Why Nipuna</a>
+      <a href="#goals" class="mobile-nav-link">Goals</a>
+      <a href="#facilities" class="mobile-nav-link">Facilities</a>
+      <a href="#courses" class="mobile-nav-link">Courses</a>
+      <a href="#posts" class="mobile-nav-link">Posts</a>
+      <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+      <a href="#leadership" class="mobile-nav-link">Leadership</a>
+      <a href="#feedback" class="mobile-tour-link" style="margin-top: 1rem;">Feedback</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Consolidated CSS -->
+<style>
+.star-rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-right: 0.75rem;
+}
+.star-rating svg {
+  width: 1rem;
+  height: 1rem;
+  color: #fbbf24;
+  fill: currentColor;
+}
+.star-rating[data-rating="4"] svg:nth-child(5) {
+  color: #d1d5db;
+}
+
+/* Common card styles */
+.card-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: #fef2f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+}
+
+.card-icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-red);
+}
+
+.section-title {
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.text-gray-600 {
+  color: #6b7280;
+}
+
+.contact-info {
+  color: #4b5563;
+  line-height: 1.6;
+}
+</style>
+
+<!-- Star Rating JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const starRatings = document.querySelectorAll('.star-rating');
+  const starSvg = '<svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>';
+  
+  starRatings.forEach(rating => {
+    const ratingValue = parseInt(rating.getAttribute('data-rating'));
+    let starsHtml = '';
+    for (let i = 0; i < 5; i++) {
+      const color = i < ratingValue ? '#fbbf24' : '#d1d5db';
+      starsHtml += <svg style="width: 1rem; height: 1rem; color: ${color};" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>;
+    }
+    rating.innerHTML = starsHtml;
+  });
+});
+</script>
+
+<!-- Main Content -->
+<main style="padding-top: 4rem;">
+  <!-- Hero Section -->
+  <section id="hero" class="hero-bg">
+    <div class="container hero-content">
+      <div class="grid grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <h1 style="line-height: 1.1;">
+              <span class="gradient-text">WELCOMΕ ΤΟ</span><br>
+              <span class="text-gray-900">HETERO — NIPUNA</span>
+            </h1>
+            <p style="font-size: 1.25rem; color: #4b5563; font-weight: 500; margin-bottom: 1rem;">
+              Inspiring human belief in a healthier world. Build skills. Unlock potential.
+            </p>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+              State-of-the-art training, VR & QC labs, expert-led modules and global certifications
+            </p>
+          </div>
+          
+          <div class="flex space-x-4">
+            <a href="#aclities" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">
+              Facilities
+            </a>
+            <a href="#courses" class="btn btn-secondary" style="font-size: 1.125rem; padding: 1rem 2rem;">
+              Explore Courses
+            </a>
+          </div>
+        </div>
+        
+        <div style="position: relative;">
+          <!-- NIPUNA Logo Display -->
+          <div style="background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%); border-radius: 1rem; padding: 2rem; height: 24rem; display: flex; align-items: center; justify-content: center;">
+            <div class="text-center space-y-4">
+              <!-- NIPUNA Logo -->
+              <div class="hero-logo">
+                <div class="hero-logo-text">NIPUNA</div>
+              </div>
+              <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937;">Centre of Excellence</h3>
+              <p class="text-gray-600">Innovation • Learning • Growth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 20;">
+      <div style="animation: bounce 1s infinite;">
+        <svg style="width: 1.5rem; height: 1.5rem; color: #9ca3af;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Nipuna Section -->
+  <section id="why-nipuna" class="section bg-white">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 class="section-title">Why Nipuna is important for employees</h2>
+        <p class="section-subtitle">
+          Empowering your workforce through continuous learning and development
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-4 gap-8">
+        <div class="card fade-in">
+          <div class="card-body text-center">
+            <div class="card-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Continuous Learning</h3>
+            <p class="text-gray-600">Making employees learn continuously and be part of a learning organization.</p>
+          </div>
+        </div>
+        
+        <div class="card fade-in">
+          <div class="card-body text-center">
+            <div class="card-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Skill Development</h3>
+            <p class="text-gray-600">Equips employees with the right skills by bridging skill gaps and building competencies.</p>
+          </div>
+        </div>
+        
+        <div class="card fade-in">
+          <div class="card-body text-center">
+            <div class="card-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Future Ready</h3>
+            <p class="text-gray-600">Prepares employees for the future by aligning capabilities with evolving industry needs.</p>
+          </div>
+        </div>
+        
+        <div class="card fade-in">
+          <div class="card-body text-center">
+            <div class="card-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Employee Engagement</h3>
+            <p class="text-gray-600">Drives retention, motivation & performance: engaged employees contribute to long-term success.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Placeholder sections for remaining content -->
+  <!-- Organizational Goals Section -->
+  <section id="goals" class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 class="section-title">Organizational Goals</h2>
+        <p class="section-subtitle">
+          Strategic objectives driving excellence through learning and development
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1" style="max-width: 4xl; margin: 0 auto; gap: 2rem;">
+        <div class="flex items-center gap-8 fade-in">
+          <div style="flex-shrink: 0; width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--primary-red), #8b1538); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem;">1</div>
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Build a skilled internal talent pool across functions</h3>
+            <p class="text-gray-600">Develop comprehensive expertise within our organization to meet diverse business needs and drive innovation across all departments.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-8 fade-in">
+          <div style="flex-shrink: 0; width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--primary-red), #8b1538); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem;">2</div>
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Foster career growth & job satisfaction</h3>
+            <p class="text-gray-600">Create clear pathways for professional advancement while ensuring employees feel fulfilled and engaged in their roles.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-8 fade-in">
+          <div style="flex-shrink: 0; width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--primary-red), #8b1538); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem;">3</div>
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Drive excellence via quality, efficiency, innovation</h3>
+            <p class="text-gray-600">Establish standards of excellence that promote high-quality outcomes, operational efficiency, and innovative thinking.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-8 fade-in">
+          <div style="flex-shrink: 0; width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--primary-red), #8b1538); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem;">4</div>
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Develop a leadership pipeline</h3>
+            <p class="text-gray-600">Cultivate the next generation of leaders through mentorship, training, and strategic development programs.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-8 fade-in">
+          <div style="flex-shrink: 0; width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--primary-red), #8b1538); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem;">5</div>
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Support scalable & sustainable growth</h3>
+            <p class="text-gray-600">Build capabilities and systems that enable long-term organizational growth while maintaining sustainability and quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Facilities Section -->
+  <section id="facilities" class="section bg-white">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 class="section-title">State-of-the-art Learning Infrastructure</h2>
+        <p class="section-subtitle">
+          World-class facilities designed to enhance learning experiences and drive innovation
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1" style="gap: 2rem;">
+        <!-- First Row - 2 Cards -->
+        <div class="grid grid-cols-2 gap-8">
+          <div class="card slide-left" style="background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                <div style="width: 3rem; height: 3rem; background-color: var(--primary-red); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                  <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827;">High-tech Training Rooms</h3>
+              </div>
+              <p class="text-gray-600">Modern computer labs equipped with latest technology and interactive learning systems for hands-on training experiences.</p>
+            </div>
+          </div>
+          
+          <div class="card slide-right" style="background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                <div style="width: 3rem; height: 3rem; background-color: var(--primary-red); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                  <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827;">VR Suite & QC Lab</h3>
+              </div>
+              <p class="text-gray-600">Immersive virtual reality training environments and quality control laboratories for practical, real-world learning.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Second Row - 3 Cards -->
+        <div class="grid grid-cols-1" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+          <div class="card fade-in" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);">
+            <div class="card-body text-center">
+              <div style="width: 3rem; height: 3rem; background-color: #3b82f6; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Resource-rich Library</h3>
+              <p class="text-gray-600">Comprehensive collection of learning materials, research resources, and quiet study spaces.</p>
+            </div>
+          </div>
+          
+          <div class="card fade-in" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);">
+            <div class="card-body text-center">
+              <div style="width: 3rem; height: 3rem; background-color: #10b981; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Professional Studio</h3>
+              <p class="text-gray-600">Content creation studio for developing training materials, presentations, and multimedia resources.</p>
+            </div>
+          </div>
+          
+          <div class="card fade-in" style="background: linear-gradient(135deg, #fefce8 0%, #ffffff 100%);">
+            <div class="card-body text-center">
+              <div style="width: 3rem; height: 3rem; background-color: #f59e0b; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5L9 18h10"></path>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">On-site Cafeteria</h3>
+              <p class="text-gray-600">Comfortable dining spaces and relaxation areas to support learning and collaboration.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Counselling Room Card -->
+        <div style="max-width: 32rem; margin: 2rem auto 0 auto;">
+          <div class="card fade-in" style="background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);">
+            <div class="card-body text-center">
+              <div style="width: 3rem; height: 3rem; background-color: #ec4899; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Counselling Room</h3>
+              <p class="text-gray-600">Professional counselling and guidance services to support employee wellbeing and career development.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Courses Section -->
+  <section id="courses" class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 class="section-title">Courses & Certifications</h2>
+        <p class="section-subtitle">
+          Expert-led, hands-on modules; partnered with universities and B-schools for assessments & certifications
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+        <div class="card fade-in">
+          <div class="card-body">
+            <div style="width: 100%; height: 12rem; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 0.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 3rem; height: 3rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.75rem;">Innovation & Leadership</h3>
+            <p class="text-gray-600" style="margin-bottom: 1rem;">Develop strategic thinking, innovation management, and leadership capabilities for the modern workplace.</p>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="background-color: #dbeafe; color: #1e40af; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500;">12 Modules</span>
+              <button class="btn-outline" style="font-size: 0.875rem; padding: 0.5rem 1rem;">View Syllabus</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card fade-in">
+          <div class="card-body">
+            <div style="width: 100%; height: 12rem; background: linear-gradient(135deg, #10b981, #047857); border-radius: 0.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 3rem; height: 3rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.75rem;">Quality Control & Compliance</h3>
+            <p class="text-gray-600" style="margin-bottom: 1rem;">Master quality assurance methodologies, regulatory compliance, and pharmaceutical standards.</p>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="background-color: #d1fae5; color: #065f46; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500;">16 Modules</span>
+              <button class="btn-outline" style="font-size: 0.875rem; padding: 0.5rem 1rem;">View Syllabus</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card fade-in">
+          <div class="card-body">
+            <div style="width: 100%; height: 12rem; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 0.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 3rem; height: 3rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.75rem;">Data Analytics & Research</h3>
+            <p class="text-gray-600" style="margin-bottom: 1rem;">Learn advanced analytics, research methodologies, and data-driven decision making.</p>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="background-color: #fef3c7; color: #92400e; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500;">14 Modules</span>
+              <button class="btn-outline" style="font-size: 0.875rem; padding: 0.5rem 1rem;">View Syllabus</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="#contact" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">
+          Enroll Now
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Posts & Events Section -->
+  <section id="posts" class="section bg-white">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 class="section-title">Posts & Events</h2>
+        <p class="section-subtitle">
+          Stay updated with the latest news, events, and insights from Nipuna
+        </p>
+      </div>
+      
+      
+      <!-- Filter Buttons -->
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div style="display: inline-flex; gap: 0.5rem; background-color: #f3f4f6; padding: 0.25rem; border-radius: 0.5rem;">
+          <button class="filter-btn active" data-filter="All" style="background-color: var(--primary-red); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">All</button>
+          <button class="filter-btn" data-filter="Events" style="background-color: transparent; color: #4b5563; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">Events</button>
+          <button class="filter-btn" data-filter="News" style="background-color: transparent; color: #4b5563; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">News</button>
+          <button class="filter-btn" data-filter="Workshops" style="background-color: transparent; color: #4b5563; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">Workshops</button>
+        </div>
+      </div>
+      
+      <!-- Posts Grid -->
+      <div class="grid grid-cols-1" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;" id="posts-grid">
+        <article class="card fade-in post-item" data-category="Events">
+          <div style="width: 100%; height: 12rem; background: linear-gradient(135deg, #fef2f2, #fee2e2); border-radius: 0.5rem 0.5rem 0 0; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 1rem; left: 1rem; background-color: var(--primary-red); color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">EVENTS</div>
+            <div style="position: absolute; bottom: 1rem; right: 1rem; background-color: rgba(255, 255, 255, 0.9); padding: 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 500;">Sep 1, 2025</div>
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 3rem; height: 3rem; color: var(--primary-red); opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.75rem;">Nipuna Launch Event</h3>
+            <p class="text-gray-600" style="margin-bottom: 1rem;">Celebrating the opening of Nipuna Centre of Excellence with stakeholders and industry leaders.</p>
+            <a href="#" style="color: var(--primary-red); font-weight: 500; text-decoration: none; font-size: 0.875rem;">Read More →</a>
+          </div>
+        </article>
+        
+        <article class="card fade-in post-item" data-category="News">
+          <div style="width: 100%; height: 12rem; background: linear-gradient(135deg, #f0f9ff, #dbeafe); border-radius: 0.5rem 0.5rem 0 0; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 1rem; left: 1rem; background-color: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">NEWS</div>
+            <div style="position: absolute; bottom: 1rem; right: 1rem; background-color: rgba(255, 255, 255, 0.9); padding: 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 500;">Aug 15, 2025</div>
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 3rem; height: 3rem; color: #3b82f6; opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.75rem;">VR Training Suite Now Available</h3>
+            <p class="text-gray-600" style="margin-bottom: 1rem;">Experience immersive learning with our state-of-the-art VR training facilities.</p>
+            <a href="#" style="color: var(--primary-red); font-weight: 500; text-decoration: none; font-size: 0.875rem;">Read More →</a>
+          </div>
+        </article>
+        
+        <article class="card fade-in post-item" data-category="Workshops">
+          <div style="width: 100%; height: 12rem; background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 0.5rem 0.5rem 0 0; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 1rem; left: 1rem; background-color: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">WORKSHOPS</div>
+            <div style="position: absolute; bottom: 1rem; right: 1rem; background-color: rgba(255, 255, 255, 0.9); padding: 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 500;">Aug 1, 2025</div>
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 3rem; height: 3rem; color: #10b981; opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.75rem;">Quality Control Workshop Series</h3>
+            <p class="text-gray-600" style="margin-bottom: 1rem;">Join our comprehensive QC workshop series for hands-on learning.</p>
+            <a href="#" style="color: var(--primary-red); font-weight: 500; text-decoration: none; font-size: 0.875rem;">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 style="color: #111827; margin-bottom: 1rem;">Voices from Nipuna</h2>
+        <p style="font-size: 1.25rem; color: #4b5563; max-width: 48rem; margin: 0 auto;">
+          Hear from our learners about their transformative experiences at Nipuna
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1" style="grid-template-columns: repeat(2, 1fr); gap: 3rem;">
+        <div class="card fade-in" style="background: linear-gradient(135deg, #ffffff, #f8fafc);">
+          <div class="card-body">
+            <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+              <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--primary-red), #8b1538); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem; margin-right: 1rem;">RS</div>
+              <div>
+                <h4 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.25rem;">Rajesh Sharma</h4>
+                <p style="font-size: 0.875rem; color: #6b7280;">Quality Assurance Manager</p>
+              </div>
+            </div>
+            <blockquote style="font-size: 1.125rem; color: #374151; font-style: italic; line-height: 1.6; margin-bottom: 1rem;">
+              "The VR training modules at Nipuna completely transformed how we approach quality control. The immersive experience made complex procedures easy to understand and implement."
+            </blockquote>
+            <div style="display: flex; align-items: center;">
+              <div class="star-rating" data-rating="5"></div>
+              <span style="font-size: 0.875rem; color: #6b7280;">5/5 Rating</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card fade-in" style="background: linear-gradient(135deg, #ffffff, #f8fafc);">
+          <div class="card-body">
+            <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+              <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem; margin-right: 1rem;">AP</div>
+              <div>
+                <h4 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.25rem;">Anita Patel</h4>
+                <p style="font-size: 0.875rem; color: #6b7280;">Research & Development Lead</p>
+              </div>
+            </div>
+            <blockquote style="font-size: 1.125rem; color: #374151; font-style: italic; line-height: 1.6; margin-bottom: 1rem;">
+              "Nipuna's data analytics course gave me the skills I needed to lead our R&D initiatives. The practical approach and expert mentorship made all the difference."
+            </blockquote>
+            <div style="display: flex; align-items: center;">
+              <div class="star-rating" data-rating="4"></div>
+              <span style="font-size: 0.875rem; color: #6b7280;">4/5 Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional testimonials in single row -->
+      <div style="margin-top: 3rem; text-align: center;">
+        <div class="card fade-in" style="max-width: 48rem; margin: 0 auto; background: linear-gradient(135deg, #fef2f2, #ffffff);">
+          <div class="card-body">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+              <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem; margin-right: 1rem;">MK</div>
+              <div>
+                <h4 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.25rem;">Mahesh Kumar</h4>
+                <p style="font-size: 0.875rem; color: #6b7280;">Operations Director</p>
+              </div>
+            </div>
+            <blockquote style="font-size: 1.25rem; color: #374151; font-style: italic; line-height: 1.6; margin-bottom: 1rem;">
+              "The leadership development program at Nipuna equipped me with strategic thinking skills that directly impacted our operational efficiency. Highly recommended for emerging leaders."
+            </blockquote>
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <div class="star-rating" data-rating="5"></div>
+              <span style="font-size: 0.875rem; color: #6b7280;">5/5 Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Leadership Section -->
+  <section id="leadership" class="section bg-white">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 style="color: #111827; margin-bottom: 1rem;">Leadership & Trainers</h2>
+        <p style="font-size: 1.25rem; color: #4b5563; max-width: 48rem; margin: 0 auto;">
+          Meet our expert trainers and leadership team dedicated to your growth
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1" style="grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-body">
+            <div style="width: 6rem; height: 6rem; background: linear-gradient(135deg, var(--primary-red), #8b1538); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem; margin: 0 auto 1.5rem auto;">DS</div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Dr. Suresh Kumar</h3>
+            <p style="color: var(--primary-red); font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">Director, Nipuna COE</p>
+            <p class="text-gray-600" style="font-size: 0.875rem; line-height: 1.5;">Ph.D. in Pharmaceutical Sciences with 20+ years in corporate training and leadership development.</p>
+          </div>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-body">
+            <div style="width: 6rem; height: 6rem; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem; margin: 0 auto 1.5rem auto;">PG</div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Priya Gupta</h3>
+            <p style="color: var(--primary-red); font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">Lead Trainer, QC & Compliance</p>
+            <p class="text-gray-600" style="font-size: 0.875rem; line-height: 1.5;">M.Sc. in Chemistry, certified quality management professional with expertise in pharmaceutical regulations.</p>
+          </div>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-body">
+            <div style="width: 6rem; height: 6rem; background: linear-gradient(135deg, #10b981, #047857); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem; margin: 0 auto 1.5rem auto;">AT</div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Arjun Thakur</h3>
+            <p style="color: var(--primary-red); font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">Senior Trainer, Data Analytics</p>
+            <p class="text-gray-600" style="font-size: 0.875rem; line-height: 1.5;">MBA in Analytics, former consultant with expertise in pharmaceutical data science and research methodologies.</p>
+          </div>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-body">
+            <div style="width: 6rem; height: 6rem; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem; margin: 0 auto 1.5rem auto;">NS</div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Neha Sharma</h3>
+            <p style="color: var(--primary-red); font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">Leadership Development Coach</p>
+            <p class="text-gray-600" style="font-size: 0.875rem; line-height: 1.5;">Executive coach with 15+ years experience in leadership training and organizational development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Feedback Section -->
+  <section id="feedback" class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 style="color: #111827; margin-bottom: 1rem;">Feedback</h2>
+        <p style="font-size: 1.25rem; color: #4b5563; max-width: 48rem; margin: 0 auto;">
+          Share your thoughts and feedback with us
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
+        <!-- Feedback Form -->
+        <div>
+          <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 1.5rem; text-align: center;">Feedback Form</h3>
+          
+          <form id="contact-form">
+            <div style="margin-bottom: 1.5rem;">
+              <label for="name" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Full Name *</label>
+              <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.2s ease;" placeholder="Enter your full name">
+              <div class="error-message" id="name-error" style="display: none; color: var(--primary-red); font-size: 0.875rem; margin-top: 0.25rem;"></div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="email" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Email Address *</label>
+              <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.2s ease;" placeholder="Enter your email address">
+              <div class="error-message" id="email-error" style="display: none; color: var(--primary-red); font-size: 0.875rem; margin-top: 0.25rem;"></div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="phone" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.2s ease;" placeholder="Enter your phone number">
+              <div class="error-message" id="phone-error" style="display: none; color: var(--primary-red); font-size: 0.875rem; margin-top: 0.25rem;"></div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="preferred_date" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Preferred Visit Date</label>
+              <input type="date" id="preferred_date" name="preferred_date" style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.2s ease;">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="message" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Message *</label>
+              <textarea id="message" name="message" required rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.2s ease; resize: vertical;" placeholder="Tell us about your learning goals or questions"></textarea>
+              <div class="error-message" id="message-error" style="display: none; color: var(--primary-red); font-size: 0.875rem; margin-top: 0.25rem;"></div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+                <input type="checkbox" id="consent" name="consent" required style="margin-top: 0.25rem; width: 1rem; height: 1rem; accent-color: var(--primary-red);">
+                <span style="font-size: 0.875rem; color: #4b5563; line-height: 1.4;">I consent to being contacted by Nipuna Centre of Excellence regarding my inquiry and agree to the privacy policy. *</span>
+              </label>
+              <div class="error-message" id="consent-error" style="display: none; color: var(--primary-red); font-size: 0.875rem; margin-top: 0.25rem;"></div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.125rem; padding: 1rem;" id="submit-btn">
+              <span id="submit-text">Send Feedback</span>
+              <span id="submit-loading" style="display: none;">Sending...</span>
+            </button>
+          </form>
+          
+          <!-- Success Message -->
+          <div id="success-message" style="display: none; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 0.5rem; padding: 1rem; margin-top: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 style="font-size: 1rem; font-weight: 600; color: #047857; margin-bottom: 0.25rem;">Feedback Sent Successfully!</h4>
+                <p style="font-size: 0.875rem; color: #065f46;">Thank you for your feedback. We'll contact you within 24 hours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information Section -->
+  <section id="contact" class="section bg-white">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 4rem;">
+        <h2 style="color: #111827; margin-bottom: 1rem;">Contact Information</h2>
+        <p style="font-size: 1.25rem; color: #4b5563; max-width: 48rem; margin: 0 auto;">
+          Get in touch with us for more information
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1" style="grid-template-columns: repeat(3, 1fr); gap: 3rem;">
+        <!-- Location -->
+        <div class="card text-center">
+          <div class="card-body">
+            <div style="width: 4rem; height: 4rem; background-color: #fef2f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
+              <svg style="width: 2rem; height: 2rem; color: #dc2626;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem;">Visit Us</h3>
+            <p class="contact-location contact-info" onclick="openGoogleMaps()" style="cursor: pointer;">
+              7-2-A2, Industrial Estates<br>
+              Sarath Nagar, Hyderabad-530018<br>
+              Telangana, India
+            </p>
+          </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="card text-center">
+          <div class="card-body">
+            <div style="width: 4rem; height: 4rem; background-color: #fef2f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
+              <svg style="width: 2rem; height: 2rem; color: #dc2626;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem;">Email Us</h3>
+            <p class="contact-info" style="margin-bottom: 1rem;">nipuna@hetero.com</p>
+            <a href="mailto:nipuna@hetero.com" class="btn btn-outline" style="font-size: 0.875rem; padding: 0.5rem 1rem;">Send Email</a>
+          </div>
+        </div>
+        
+        <!-- Website -->
+        <div class="card text-center">
+          <div class="card-body">
+            <div style="width: 4rem; height: 4rem; background-color: #fef2f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
+              <svg style="width: 2rem; height: 2rem; color: #dc2626;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem;">Website</h3>
+            <p class="contact-info" style="margin-bottom: 1rem;">www.hetero.com</p>
+            <a href="https://www.hetero.com" target="_blank" class="btn btn-outline" style="font-size: 0.875rem; padding: 0.5rem 1rem;">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: white;">NIPUNA</h3>
+        <p style="color: #9ca3af; margin-bottom: 0.5rem;">Hetero's Centre of Excellence</p>
+        <p style="color: #9ca3af;">Inspiring human belief in a healthier world.</p>
+      </div>
+      
+      <div>
+        <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">Quick Links</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="#why-nipuna" style="color: #9ca3af; text-decoration: none; transition: color 0.3s ease;">Why Nipuna</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="#facilities" style="color: #9ca3af; text-decoration: none; transition: color 0.3s ease;">Facilities</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="#courses" style="color: #9ca3af; text-decoration: none; transition: color 0.3s ease;">Courses</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="#posts" style="color: #9ca3af; text-decoration: none; transition: color 0.3s ease;">Posts & Events</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: #9ca3af; text-decoration: none; transition: color 0.3s ease;">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">Contact Info</h4>
+        <div style="color: #9ca3af;">
+          <p style="margin-bottom: 0.5rem;">Email: nipuna@hetero.com</p>
+          <p>Website: www.hetero.com</p>
+        </div>
+      </div>
+      
+      <div>
+        <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">Newsletter</h4>
+        <p style="color: #9ca3af; margin-bottom: 1rem;">Stay updated with our latest news and events.</p>
+        <form id="newsletter-form" class="footer-subscribe">
+          <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div id="newsletter-message" style="margin-top: 0.5rem; display: none; font-size: 0.875rem;"></div>
+      </div>
+    </div>
+    
+    <div style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem; text-align: center; color: #9ca3af;">
+      <p>&copy; 2025 Hetero - Nipuna Centre of Excellence. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Chatbot -->
+<div id="chatbot-container" class="chatbot-container">
+  <div id="chatbot-toggle" class="chatbot-toggle">
+    <i class="fas fa-comments"></i>
+    <span class="chat-notification" id="chat-notification">AI Assistant</span>
+  </div>
+  
+  <div id="chatbot-window" class="chatbot-window">
+    <div class="chatbot-header">
+      <h3>NIPUNA AI Assistant</h3>
+      <button id="chatbot-close" class="chatbot-close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-content">
+          Hello! I'm your NIPUNA AI Assistant. How can I help you learn about our Centre of Excellence today?
+        </div>
+        <div class="message-time"></div>
+      </div>
+    </div>
+    
+    <div class="chatbot-input-container">
+      <div class="chatbot-input-wrapper">
+        <input type="text" id="chatbot-input" placeholder="Ask me about NIPUNA courses, facilities, or anything else..." maxlength="500">
+        <button id="chatbot-send" class="chatbot-send">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <div class="chatbot-typing" id="chatbot-typing" style="display: none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        AI is typing...
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin access link (hidden) -->
+<a href="/admin" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">admin</a>
