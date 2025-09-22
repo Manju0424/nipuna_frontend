@@ -222,7 +222,7 @@ export class App implements OnInit, OnDestroy {
         };
         
         // Send to backend
-        const response = await fetch('http://localhost:5000/api/contacts', {
+        const response = await fetch('https://nipuna-backend.onrender.com/api/contacts', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -431,7 +431,7 @@ export class App implements OnInit, OnDestroy {
         
         try {
           // Send to backend AI
-          const response = await fetch('http://localhost:5000/api/chat', {
+          const response = await fetch('https://nipuna-backend.onrender.com/api/chat', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
