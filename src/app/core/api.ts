@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Api {
-  private readonly baseUrl = '/api';
+  private readonly baseUrl = 'https://nipuna-backend.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
